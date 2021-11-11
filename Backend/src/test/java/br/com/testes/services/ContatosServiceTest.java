@@ -51,7 +51,7 @@ public class ContatosServiceTest {
     @Test
     @DisplayName("Retorna uma exception quando inserir contato existente")
     public void shouldReturnException_WhenInsideExistentContatos(){
-        ContatosModel contatoTest = new ContatosModel(1L,"José","Jose123@gmail.com ","(11)222333444");
+        ContatosModel contatoTest = new ContatosModel(1L,"John","John123@gmail.com","(22)333444555");
     }
     @Test
     @DisplayName("Retorna exception quando inserir contato com telefone que já foi cadastrado")
