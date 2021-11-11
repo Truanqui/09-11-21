@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css';
+import Home from './pages/home';
+import Index from './pages/index';
+import Show from './pages/show';
+import Insert from './pages/insert';
+import Edit from './pages/edit';
+import Delete from './pages/delete';
+import NotFound from './pages/NotFound';
+import Insert from "./pages/insert";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/index" component={Index} />
+        <Route path="/show" component={Show} />
+        <Route path="/insert" component={Insert} />
+        <Route path="/edit" component={Edit} />
+        <Route path="/delete" component={Delete} />
+        <Route path="*" component={NotFound} />        
+      </Switch>
+    </Router>
   );
 }
-
 export default App;
