@@ -6,8 +6,7 @@ import Show from './pages/show';
 import Insert from './pages/insert';
 import Edit from './pages/edit';
 import Delete from './pages/delete';
-import NotFound from './pages/NotFound';
-import Insert from "./pages/insert";
+import NotFound from './pages/notfound';
 
 function App() {
   return (

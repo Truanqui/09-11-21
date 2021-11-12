@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../styles/home.css';
 import api from "../api";
 import {Link} from "react-router-dom";
 
@@ -27,16 +26,16 @@ import {Link} from "react-router-dom";
                         </Link>
                         <ul>
                             <li>
-                                <input onChange={value => setName(value.target.value)} value={contatoName} className="input-insert" type="text" placeholder="Name"></input>
+                                <input name="InputName" onChange={value => setName(value.target.value)} value={contatoName} className="input-insert" type="text" placeholder="Name"></input>
                             </li>
                             <li>
-                                <input onChange={value => setEmail(value.target.value)} value={contatoEmail} className="input-insert" type="text" placeholder="Email"></input>
+                                <input  name="InputEmail" onChange={value => setEmail(value.target.value)} value={contatoEmail} className="input-insert" type="text" placeholder="Email"></input>
                             </li>
                             <li>
-                                <input onChange={value => setTelefone(value.target.value)} value={contatoTelefone} className="input-insert" type="text" placeholder="Telefone"></input>
+                                <input name="InputTelefone" onChange={value => setTelefone(value.target.value)} value={contatoTelefone} className="input-insert" type="text" placeholder="Telefone"></input>
                             </li>
                             <li>
-                                <button id="botao-form-confirmar" type="submit" className="input-insert">Confirmar</button>
+                                <button name="botao-form-confirmar" type="submit" className="input-insert">Confirmar</button>
                             </li>
                         </ul>
                     </form>
