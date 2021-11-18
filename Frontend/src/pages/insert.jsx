@@ -17,29 +17,35 @@ import {Link} from "react-router-dom";
             }
             api.post('/contatos', postContatos).then((resp) => {
                 console.log(resp);
-            });
+
+            }   );
+            setName("");
+            setEmail("");
+            setTelefone("");      
+
+            }
             return(
-                <>
-                    <form className="form-insert" onSubmit={handleSubmit}>
-                        <Link to="/">
-                            <button type="button" className="botao-voltar">Voltar</button>
+                <div className="form-create">
+                    <form onSubmit={handleSubmit}>
+                        <Link to="/" id="botao-pagina-insert">
+                            <button type="button" className="botao-voltar-insert">Voltar</button>
                         </Link>
-                        <ul>
+                        <ul className="ul-create">
                             <li>
-                                <input name="InputName" onChange={value => setName(value.target.value)} value={contatoName} className="input-insert" type="text" placeholder="Name"></input>
+                                <input onChange={value => setName(value.target.value)} value={contatoName} className="input-insert" type="text" placeholder="Name"></input>
                             </li>
                             <li>
-                                <input  name="InputEmail" onChange={value => setEmail(value.target.value)} value={contatoEmail} className="input-insert" type="text" placeholder="Email"></input>
+                                <input onChange={value => setEmail(value.target.value)} value={contatoEmail} className="input-insert" type="text" placeholder="Email"></input>
                             </li>
                             <li>
-                                <input name="InputTelefone" onChange={value => setTelefone(value.target.value)} value={contatoTelefone} className="input-insert" type="text" placeholder="Telefone"></input>
+                                <input onChange={value => setTelefone(value.target.value)} value={contatoTelefone} className="input-insert" type="text" placeholder="Telefone"></input>
                             </li>
                             <li>
-                                <button name="botao-form-confirmar" type="submit" className="input-insert">Confirmar</button>
+                                <button name="botao-form-confirmar-insert" type="submit" className="input-insert">Confirmar</button>
                             </li>
                         </ul>
                     </form>
-                </>
+                </div>
             );
         }
         

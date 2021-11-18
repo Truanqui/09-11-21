@@ -41,7 +41,7 @@ function Delete() {
             id="input-delete"
           />
           <button id="botao-form-submit-delete" type="submit" className="input-insert">
-            Submit
+            Enviar
           </button>
         </form>
       </div>
