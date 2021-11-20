@@ -20,14 +20,14 @@ import {Link} from "react-router-dom";
                         </li>
                         <li>
                             
-                            <Link to="/insert">
+                            <Link to="/contatos">
                                 <button id="botao-insert" type="button" className="botao-home-menu">Insert</button>
                             </Link>
                         </li>
                         <li>
                             
-                            <Link to="/update">
-                            <button id="botao-update" type="button" className="botao-home-menu">Edit</button>
+                            <Link to="/edit">
+                            <button id="botao-edit" type="button" className="botao-home-menu">Edit</button>
                             </Link>
                         </li>
                         <li>

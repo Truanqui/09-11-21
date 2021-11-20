@@ -1,51 +1,39 @@
-import React, { useState, useEffect } from "react";
-import api from "../api";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import api from '../api'
 
-function Delete() {
-  const [id, setId] = useState();
+export default function Delete() {
+    const [id, setId] = useState(0)
 
-  useEffect(() => {
-    handleContato();
-  }, []);
-
-  async function handleContato() {
-    const response = await api.delete("/contatos/delete/"+id);
-    console.log(id);
-    if (response.status == 200) {
-        alert("Contatoo deleted");
-    } else {
-        alert("Error");
+    const deletar = {
+        id: id
     }
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(id);
-    setId("");
-  };
 
-  return (
-    <div className="container-delete">
-      <div >
-        <Link to="/" id="botao-pagina-delete">
-          <button type="button" className="botao-voltar-delete">
-            Voltar
-          </button>
-        </Link>
-        <form onSubmit={handleContato} className="flex-delete">
-          <input
-            onChange={(value) => setId(value.target.value)}
-            value={id}
-            type="text"
-            className="input-create"
-            id="input-delete"
-          />
-          <button id="botao-form-submit-delete" type="submit" className="input-insert">
-            Enviar
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+    async function handleSubmit(e) {
+        e.preventDefault();
+        await cadastrar(deletar);
+    }
+
+    async function cadastrar(deletar) {
+        console.log(deletar);
+        const response = await api.delete(
+            '/contatos/delete/'+id,
+            deletar
+        )
+        console.log(response.status);
+        if (response.status === 200) {
+            alert("Contato deletado com sucesso!")
+        } else {
+            alert("Contato não encontrado")
+        }
+    }
+    
+    return(
+        <>
+            <form onSubmit={(e) => handleSubmit(e)}>
+                    Informe o ID do contato que deseja deletar:
+                    <input type="number" name="id" onChange={value => setId(value.target.value)} value={id} />
+                    <button type="submit" >Submit</button>
+            </form>
+        </>
+    )
 }
-export default Delete;

@@ -24,7 +24,7 @@ public class SeleniumTest {
     }
 
     @Test
-    void criaUmNovo() {
+    void Selenium() {
         nav.get("http://localhost:3000/");
                 nav.manage().window().maximize();
         nav.findElement(By.id("botao-insert")).click();
@@ -33,6 +33,5 @@ public class SeleniumTest {
         nav.findElement(By.name("InputTelefone")).sendKeys("9346578");
         nav.findElement(By.name("botao-form-confirmar")).click();
 
-        Assertions.assertThat(nav.findElement(By.id("alert")).isDisplayed());
     }
 }

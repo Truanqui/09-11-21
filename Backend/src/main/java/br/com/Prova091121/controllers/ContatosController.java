@@ -25,7 +25,7 @@ public class ContatosController {
         return ResponseEntity.ok(list);
     }
     //Find by Id
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/find/{id}")
     public ResponseEntity<ContatosModel> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
@@ -47,12 +47,12 @@ public class ContatosController {
         }
     }
     //EDIT
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = "/edit/{id}")
     public ResponseEntity<ContatosModel> editContatos(@PathVariable Long id, @RequestBody ContatosModel update){
         return ResponseEntity.ok(service.edit(id, update));
     }
     //DELETE
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id){
         service.deleteById(id);
         return ResponseEntity.ok("Contato" + id + "deleted!");

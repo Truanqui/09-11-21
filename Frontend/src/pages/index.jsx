@@ -24,23 +24,23 @@ class Index extends Component {
         </Link>
         <div className="container-getAll">
           {console.log(contatos)}
-          {contatos.map((contato) => (
-            <div key={contato.id} className="box-getAll">
+          {contatos.map((contatos) => (
+            <div key={contatos.idContatos} className="box-getAll">
               <p>
                 <span>ID: </span>
-                {contato.id}
+                {contatos.idContatos}
               </p>
               <p>
                 <span>Name: </span>
-                {contato.name}
+                {contatos.contatosName}
               </p>
               <p>
                 <span>Email: </span>
-                {contato.email}
+                {contatos.contatosEmail}
               </p>
               <p>
                 <span>Telefone: </span>
-                {contato.telefone}
+                {contatos.contatosTelefone}
               </p>
             </div>
           ))}

@@ -5,32 +5,36 @@ import { Link } from "react-router-dom";
 
 function Show() {
   const [contatos, setContato] = useState();
-  const [search, setSearch] = useState();
+  const [id, setId] = useState(0);
+  const [name, setNome] = useState("")
+  const [telefone, setTelefone] = useState("")
+  const [email, setEmail] = useState("")
+
+  const contatosToShow = {
+    idContatos: contatos,
+    contatosName: name,
+    contatosTelefone: telefone,
+    contatosEmail: email,
+  }
+
+  const pesquisar = {
+    id: id,
+  };
   
-  useEffect(() => {
-    handleContato();
-  }, []);
 
-  async function handleContato() {
-    const response = await api.get("/contatos");
+  
 
-    if (response.status !== 204) {
-      setContato(response.data);
-    }
-  }
-  async function showByEmail() {
-    const response = await api.get(`/contatos/${search}`);
-
-    if (response.status !== 204) {
-      setContato(response.data);
-    }
-  }
- const handleSubmit = (e) =>{
+  async function handleSubmit(e) {
     e.preventDefault();
-   
-}
-  
-
+    await pesquisa(pesquisar);
+  }
+  async function pesquisa(idPesquisa) {
+    console.log(idPesquisa);
+    const response = await api.get("/contatos/find/" + id);
+    if (response.status == 200) {
+      this.setContato({ contatos: response.data });
+    }
+  }
   return (
     <>
       <Link to="/">
@@ -38,14 +42,15 @@ function Show() {
           Voltar
         </button>
       </Link>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        Informe o ID do contato que deseja mostrar:
         <input
-          onChange={(value) => setSearch(value.target.value)}
-          value={search}
-          type="text"
+          type="number"
+          name="id"
+          onChange={(value) => setId(value.target.value)}
+          value={id}
         />
-         <button id="botao-form-confirmar" type="submit" className="input-create">Confirmar</button>
-        {console.log(search)}
+        <button type="submit">Submit</button>
       </form>
       <p>
         {console.log(contatos)}
@@ -53,19 +58,19 @@ function Show() {
           <span key={contato.id}>
             <p>
               <span>ID: </span>
-              {contato.id}
+              {contato.idContatos}
             </p>
             <p>
               <span>Name: </span>
-              {contato.name}
+              {contato.contatosName}
             </p>
             <p>
               <span>Email: </span>
-              {contato.email}
+              {contato.contatosEmail}
             </p>
             <p>
               <span>Telefone: </span>
-              {contato.telefone}
+              {contato.contatosTelefone}
             </p>
           </span>
         ))}

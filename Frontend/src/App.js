@@ -15,7 +15,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/index" component={Index} />
         <Route path="/show" component={Show} />
-        <Route path="/insert" component={Insert} />
+        <Route path="/contatos" component={Insert} />
         <Route path="/edit" component={Edit} />
         <Route path="/delete" component={Delete} />
         <Route path="*" component={NotFound} />        
